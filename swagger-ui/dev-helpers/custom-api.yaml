@@ -3,16 +3,50 @@ info:
   title: Taylor Swift API
   version: "1.0"
 servers:
-- url: https://taylor-swift-express-app.onrender.com
+- url: //localhost:3000
 tags:
+- name: Flexible API
 - name: Songs Inventory
 - name: Albums Inventory
 paths:
   /:
     get:
       tags:
-      - Songs Inventory
-      description: This endpoint will return a list of all song data unparsed.
+      - Flexible API
+      description: |
+        This endpoint will return a list of all song data unparsed.
+        This endpoint also allows for queryString filtering.
+      parameters:
+      - name: song
+        in: query
+        schema:
+          type: string
+      - name: album
+        in: query
+        schema:
+          type: string
+      - name: artist
+        in: query
+        schema:
+          type: string
+      - name: writer
+        in: query
+        schema:
+          type: string
+      - name: year
+        in: query
+        schema:
+          type: integer
+      - name: excludedFields
+        in: query
+        schema: 
+          type: string
+        description: |
+          Accepted Values are, Song, Album, Artist, Writer, Year and Plays. 
+          <br>
+          If you chose to exclude Plays this will remove ALL play counts.
+          <br>
+          #### Note: Values MUST be a single string and comma delimited, e.g  Arist,Writer
       responses:
         "200":
           description: 200 response
@@ -50,110 +84,11 @@ paths:
             Access-Control-Allow-Headers:
               schema:
                 type: string
-
   /songs:
     get:
       tags:
       - Songs Inventory
       description: This endpoint will return a list of all songs.
-      responses:
-        "200":
-          description: 200 response
-          headers:
-            X-Frame-Options:
-              schema:
-                type: string
-            Strict-Transport-Security:
-              schema:
-                type: string
-            Cache-Control:
-              schema:
-                type: string
-            Access-Control-Allow-Origin: '*'
-            X-Content-Type-Options:
-              schema:
-                type: string
-            Content-Security-Policy:
-              schema:
-                type: string
-            X-XSS-Protection:
-              schema:
-                type: string
-    options:
-      tags:
-      - CORS Options
-      responses:
-        "200":
-          description: 200 response
-          headers:
-            Access-Control-Allow-Origin: '*'
-            Access-Control-Allow-Methods:
-              schema:
-                type: string
-            Access-Control-Allow-Headers:
-              schema:
-                type: string
-
-  /songs/{song}:
-    get:
-      tags:
-      - Songs Inventory
-      description: Return information about a specific song.
-      parameters:
-      - name: song
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          description: 200 response
-          headers:
-            X-Frame-Options:
-              schema:
-                type: string
-            Strict-Transport-Security:
-              schema:
-                type: string
-            Cache-Control:
-              schema:
-                type: string
-            Access-Control-Allow-Origin: '*'
-            X-Content-Type-Options:
-              schema:
-                type: string
-            Content-Security-Policy:
-              schema:
-                type: string
-            X-XSS-Protection:
-              schema:
-                type: string
-    options:
-      tags:
-      - CORS Options
-      responses:
-        "200":
-          description: 200 response
-          headers:
-            Access-Control-Allow-Origin: '*'
-            Access-Control-Allow-Methods:
-              schema:
-                type: string
-            Access-Control-Allow-Headers:
-              schema:
-                type: string
-
-  /songs/year/{releaseYear}:
-    get:
-      tags:
-      - Songs Inventory
-      description: Return a list of songs released in specified year.
-      parameters:
-      - name: releaseYear
-        in: path
-        required: true
-        schema:
-          type: integer
       responses:
         "200":
           description: 200 response

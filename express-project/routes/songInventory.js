@@ -16,18 +16,6 @@ router
     );
 
 router
-    .route("/songs/:song")
-    .get(
-        inventoryController.getSongInfo
-    );
-
-router
-    .route("/songs/year/:releaseYear")
-    .get(
-        inventoryController.getSongsByYear
-    );
-
-router
     .route("/songs/mostpopular/alltime/sort/:order")
     .get(
         inventoryController.getMostPlayedAllTime
