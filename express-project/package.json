@@ -1,0 +1,19 @@
+{
+  "name": "express-project",
+  "version": "1.0.0",
+  "description": "Project created for technical interview at ScreenCloud.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./app.js"
+  },
+  "keywords": [],
+  "author": "Aaron.Boyd",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "fs": "^0.0.1-security",
+    "nodemon": "^3.1.4",
+    "papaparse": "^5.4.1"
+  }
+}
