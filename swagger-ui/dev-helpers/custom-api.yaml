@@ -1,0 +1,548 @@
+openapi: 3.0.1
+info:
+  title: Taylor Swift API
+  version: "1.0"
+servers:
+- url: https://taylor-swift-express-app.onrender.com
+tags:
+- name: Songs Inventory
+- name: Albums Inventory
+paths:
+  /:
+    get:
+      tags:
+      - Songs Inventory
+      description: This endpoint will return a list of all song data unparsed.
+      responses:
+        "200":
+          description: 200 response
+          headers:
+            X-Frame-Options:
+              schema:
+                type: string
+            Strict-Transport-Security:
+              schema:
+                type: string
+            Cache-Control:
+              schema:
+                type: string
+            Access-Control-Allow-Origin: '*'
+            X-Content-Type-Options:
+              schema:
+                type: string
+            Content-Security-Policy:
+              schema:
+                type: string
+            X-XSS-Protection:
+              schema:
+                type: string
+    options:
+      tags:
+      - CORS Options
+      responses:
+        "200":
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin: '*'
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+
+  /songs:
+    get:
+      tags:
+      - Songs Inventory
+      description: This endpoint will return a list of all songs.
+      responses:
+        "200":
+          description: 200 response
+          headers:
+            X-Frame-Options:
+              schema:
+                type: string
+            Strict-Transport-Security:
+              schema:
+                type: string
+            Cache-Control:
+              schema:
+                type: string
+            Access-Control-Allow-Origin: '*'
+            X-Content-Type-Options:
+              schema:
+                type: string
+            Content-Security-Policy:
+              schema:
+                type: string
+            X-XSS-Protection:
+              schema:
+                type: string
+    options:
+      tags:
+      - CORS Options
+      responses:
+        "200":
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin: '*'
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+
+  /songs/{song}:
+    get:
+      tags:
+      - Songs Inventory
+      description: Return information about a specific song.
+      parameters:
+      - name: song
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: 200 response
+          headers:
+            X-Frame-Options:
+              schema:
+                type: string
+            Strict-Transport-Security:
+              schema:
+                type: string
+            Cache-Control:
+              schema:
+                type: string
+            Access-Control-Allow-Origin: '*'
+            X-Content-Type-Options:
+              schema:
+                type: string
+            Content-Security-Policy:
+              schema:
+                type: string
+            X-XSS-Protection:
+              schema:
+                type: string
+    options:
+      tags:
+      - CORS Options
+      responses:
+        "200":
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin: '*'
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+
+  /songs/year/{releaseYear}:
+    get:
+      tags:
+      - Songs Inventory
+      description: Return a list of songs released in specified year.
+      parameters:
+      - name: releaseYear
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: 200 response
+          headers:
+            X-Frame-Options:
+              schema:
+                type: string
+            Strict-Transport-Security:
+              schema:
+                type: string
+            Cache-Control:
+              schema:
+                type: string
+            Access-Control-Allow-Origin: '*'
+            X-Content-Type-Options:
+              schema:
+                type: string
+            Content-Security-Policy:
+              schema:
+                type: string
+            X-XSS-Protection:
+              schema:
+                type: string
+    options:
+      tags:
+      - CORS Options
+      responses:
+        "200":
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin: '*'
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+
+  /songs/mostpopular/alltime/sort/{order}:
+    get:
+      tags:
+      - Songs Inventory
+      description: |
+        Returns the most popular taylor swift songs based on the song played count.
+        Accepted Sort values are 'asc' and 'desc'.
+      parameters:
+      - name: order
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: 200 response
+          headers:
+            X-Frame-Options:
+              schema:
+                type: string
+            Strict-Transport-Security:
+              schema:
+                type: string
+            Cache-Control:
+              schema:
+                type: string
+            Access-Control-Allow-Origin: '*'
+            X-Content-Type-Options:
+              schema:
+                type: string
+            Content-Security-Policy:
+              schema:
+                type: string
+            X-XSS-Protection:
+              schema:
+                type: string
+    options:
+      tags:
+      - CORS Options
+      responses:
+        "200":
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin: '*'
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+
+  /songs/month/{month}/sort/{order}:
+    get:
+      tags:
+      - Songs Inventory
+      description: |
+        Return songs by played count in 'asc' or 'desc' order by month.
+        Accepted Values for order are 'asc' and 'desc'.
+      parameters:
+      - name: month
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: order
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: 200 response
+          headers:
+            X-Frame-Options:
+              schema:
+                type: string
+            Strict-Transport-Security:
+              schema:
+                type: string
+            Cache-Control:
+              schema:
+                type: string
+            Access-Control-Allow-Origin: '*'
+            X-Content-Type-Options:
+              schema:
+                type: string
+            Content-Security-Policy:
+              schema:
+                type: string
+            X-XSS-Protection:
+              schema:
+                type: string
+    options:
+      tags:
+      - CORS Options
+      responses:
+        "200":
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin: '*'
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+
+  /albums:
+    get:
+      tags:
+      - Albums Inventory
+      description: Returns a list of all albums and song list by Taylor Swift.
+      responses:
+        "200":
+          description: 200 response
+          headers:
+            X-Frame-Options:
+              schema:
+                type: string
+            Strict-Transport-Security:
+              schema:
+                type: string
+            Cache-Control:
+              schema:
+                type: string
+            Access-Control-Allow-Origin: '*'
+            X-Content-Type-Options:
+              schema:
+                type: string
+            Content-Security-Policy:
+              schema:
+                type: string
+            X-XSS-Protection:
+              schema:
+                type: string
+    options:
+      tags:
+      - CORS Options
+      responses:
+        "200":
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin: '*'
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+
+  /albums/year/{year}:
+    get:
+      tags:
+      - Albums Inventory
+      description: Returns a list of all albums released in the requested year.
+      parameters:
+      - name: year
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: 200 response
+          headers:
+            X-Frame-Options:
+              schema:
+                type: string
+            Strict-Transport-Security:
+              schema:
+                type: string
+            Cache-Control:
+              schema:
+                type: string
+            Access-Control-Allow-Origin: '*'
+            X-Content-Type-Options:
+              schema:
+                type: string
+            Content-Security-Policy:
+              schema:
+                type: string
+            X-XSS-Protection:
+              schema:
+                type: string
+    options:
+      tags:
+      - CORS Options
+      responses:
+        "200":
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin: '*'
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+
+  /albums/artists/{album}:
+    get:
+      tags:
+      - Albums Inventory
+      description: Returns a list of all artists that feature on the specified album.
+      parameters:
+      - name: album
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: 200 response
+          headers:
+            X-Frame-Options:
+              schema:
+                type: string
+            Strict-Transport-Security:
+              schema:
+                type: string
+            Cache-Control:
+              schema:
+                type: string
+            Access-Control-Allow-Origin: '*'
+            X-Content-Type-Options:
+              schema:
+                type: string
+            Content-Security-Policy:
+              schema:
+                type: string
+            X-XSS-Protection:
+              schema:
+                type: string
+    options:
+      tags:
+      - CORS Options
+      responses:
+        "200":
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin: '*'
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+
+  /albums/album/mostpopular/alltime/sort/{order}:
+    get:
+      tags:
+      - Albums Inventory
+      description: |
+        Returns the most popular taylor swift albums based on the song played count.
+        Accepted Sort values are 'asc' and 'desc'.
+      parameters:
+      - name: order
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: 200 response
+          headers:
+            X-Frame-Options:
+              schema:
+                type: string
+            Strict-Transport-Security:
+              schema:
+                type: string
+            Cache-Control:
+              schema:
+                type: string
+            Access-Control-Allow-Origin: '*'
+            X-Content-Type-Options:
+              schema:
+                type: string
+            Content-Security-Policy:
+              schema:
+                type: string
+            X-XSS-Protection:
+              schema:
+                type: string
+    options:
+      tags:
+      - CORS Options
+      responses:
+        "200":
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin: '*'
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+
+  /albums/album/mostpopular/month/{month}/sort/{order}:
+    get:
+      tags:
+      - Albums Inventory
+      description: |
+        Returns the most popular taylor swift albums based on the song played count for that specified month.
+        Accepted Sort values are 'asc' and 'desc'.
+      parameters:
+      - name: month
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: order
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: 200 response
+          headers:
+            X-Frame-Options:
+              schema:
+                type: string
+            Strict-Transport-Security:
+              schema:
+                type: string
+            Cache-Control:
+              schema:
+                type: string
+            Access-Control-Allow-Origin: '*'
+            X-Content-Type-Options:
+              schema:
+                type: string
+            Content-Security-Policy:
+              schema:
+                type: string
+            X-XSS-Protection:
+              schema:
+                type: string
+    options:
+      tags:
+      - CORS Options
+      responses:
+        "200":
+          description: 200 response
+          headers:
+            Access-Control-Allow-Origin: '*'
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
