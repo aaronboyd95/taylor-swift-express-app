@@ -2,13 +2,15 @@ const express = require('express');
 const cors = require('cors');
 const songInventory = require('./routes/songInventory')
 const albumInventory = require('./routes/albumInventory')
+const flexApiInventory = require('./routes/flexApiRoute')
 
 const app = express();
 app.use(cors());
 
 const port = 3000;
 
-app.use("/", songInventory);
+app.use("/", flexApiInventory);
+app.use("/songs", songInventory);
 app.use("/albums", albumInventory);
 
 app.listen(port, () => {

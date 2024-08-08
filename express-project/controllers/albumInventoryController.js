@@ -33,7 +33,6 @@ exports.getAlbumsByYear = (async (req, res, next) => {
         dynamicTyping: true,
         step: (results, parser) => {
             if (results.data.Year == req.params.year && !results.data.Album.includes('None')) {
-                console.log(results.data.Year);
                 albums.push(results.data.Album);
             }
         }
